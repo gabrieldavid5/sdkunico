@@ -21,6 +21,7 @@ O SDK Único atualmente suporta as seguintes operações.
 
 </div>
 
+  [Ativação]: ativacao.md
   [Crédito à Vista]: credito-a-vista.md
   [Crédito Parcelado]: credito-parcelado.md
   [Débito]: debito.md

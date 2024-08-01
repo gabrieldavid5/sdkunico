@@ -17,16 +17,16 @@ O SDK Único atualmente suporta as seguintes operações.
 
 A seguinte tabela resume as operações disponíveis para cada SDK de adquirente integrado ao SDK Único.
 
-| Operação   | TEF   | Stone | PagSeguro | REDE  |
-|------------|-------|-------|-----------|-------|
-| Ativar     | ✔️     | ✔️     | ✔️         | ✔️     |
-| Crédito    | ✔️     | ✔️     | ✔️         | ✔️     |
-| Débito     | ✔️     | ✔️     | ✔️         | ✔️     |
-| Voucher    | ✔️     | ✔️     | ❌         | ✔️     |
-| PIX        | ✔️     | ✔️     | ✔️         | ❌     |
-| Cancelar   | ✔️     | ✔️     | ✔️         | ✔️     |
-| Reversão   | ✔️     | ✔️     | ❌         | ✔️     |
-| Reimprimir | ✔️     | ✔️     | ❌         | ✔️     |
+| Operação   |TEF|Stone|REDE|PagSeguro| GetNet | Cielo | SafraPay | Banrisul |
+|------------|----|---|------|--|---|----|-----|----|
+| Ativar     | ✔️ | ✔️ | ✔️ | ✔️ |    |  | |  |  
+| Crédito    | ✔️ | ✔️ | ✔️ | ✔️ |    |  | |  |
+| Débito     | ✔️ | ✔️ | ✔️ | ✔️ |    |  | |  |
+| Voucher    | ✔️ | ✔️ | ✔️ | ❌ |    |  | |  |
+| PIX        | ✔️ | ✔️ | ❌ | ✔️ |   |  | |  |
+| Cancelar   | ✔️ | ✔️ | ✔️ | ✔️ |   |  | |  |
+| Reversão   | ✔️ | ✔️ | ✔️ | ❌ |   |  | |  |
+| Reimprimir | ✔️ | ✔️ | ✔️ | ❌ |   |  | |  |
 
 - "✔️" indica que a operação é suportada pelo SDK.
 - "❌" indica que a operação não é suportada pelo SDK.

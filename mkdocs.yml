@@ -1,5 +1,5 @@
 site_name: Documentação SDK Único
-site_url: https://www.linx.com.br/imprensa/vertical/pay-hub/
+site_url: https://gabrieldavid5.github.io/sdkunico/
 theme:
   name: material
   custom_dir: material/overrides
@@ -130,4 +130,4 @@ nav:
  
 
 copyright: |
-  &copy; 2024 <a href="https://www.linx.com.br/imprensa/vertical/pay-hub/"  target="_blank" rel="noopener">Linx Cross</a>
+  &copy; 2024 <a href="https://gabrieldavid5.github.io/sdkunico/"  target="_blank" rel="noopener">Linx Cross</a>

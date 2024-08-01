@@ -4,6 +4,7 @@ theme:
   name: material
   custom_dir: material/overrides
   logo: assets/logo.png
+  language: pt-BR
   features:
     - announce.dismiss
     - content.action.edit
@@ -31,8 +32,6 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
-  language: 
-   pt-br
   palette:
     - scheme: default
       toggle:

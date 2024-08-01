@@ -116,7 +116,6 @@ nav:
     - Desenvolvimento a Primeira Integração: primeiros-passos/integracao.md
   - Transações:
     - transactions/index.md
-    - Ativação: transactions/ativacao.md
     - Crédito à Vista: transactions/credito-a-vista.md
     - Crédito Parcelado: transactions/credito-parcelado.md
     - Débito: transactions/debito.md

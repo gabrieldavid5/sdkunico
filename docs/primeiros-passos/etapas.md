@@ -4,9 +4,10 @@ Para se integrar com o SDK Único, você precisa passar as seguintes etapas:
 
 ![Fluxo Integração](../assets/images/fluxo-integracao.png){ loading=lazy }
 
-Possuímos um ambiente de sandbox (testes), onde é possível testar todas as situações que ocorrem em produção, como transações negadas e timeout. 
-Para receber uma credencial de integração é necessário se cadastrar no nosso programa de parcerias. 
+Disponibilizamos um ambiente de sandbox (testes) onde é possível simular todas as situações que ocorrem em produção, como transações negadas e timeout. 
+Para receber uma credencial de integração, é necessário se cadastrar em nosso programa de parcerias. 
 Cadastre-se aqui.
+
 
 ![Fluxo Integração](../assets/images/fluxo-integracao-completo.png){ loading=lazy }
 
@@ -24,7 +25,7 @@ Cadastre-se aqui.
 |  | <p>Integração da chamada chamada de Pagamento por voucher (Voucher)</p>|  
 |  | <p>Integração da chamada de Estorno de Pagamentos</p>|  
 |  | <p>Integração da chamada de Impressão de Comprovantes</p>|  
-| `Distriuição do APK` | <p>Selecionar o versão do SDK Único específica da adquirente que deseja transacionar</p> |  
+| `Distribuição do APK` | <p>Selecionar o versão do SDK Único específica da adquirente que deseja transacionar</p> |  
 |  | <p>Gerar Deploy do APK compatível com a adquirente selecionada.</p>|  
 | `Roteiro de Testes` | <p>Execução dos roteiros de testes acompanhados pela equipe Linx Cross.</p> |  
 |  | <p>Acompanhamento da execução e correções de Bug's no APK.</p>|  

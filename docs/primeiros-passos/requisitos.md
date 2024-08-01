@@ -1,6 +1,6 @@
 # Pre-requisitos para Integração com o SDK Único
 
-Para integrar o SDK Único na sua aplicação, é necessário atender a alguns requisitos técnicos específicos.
+Para integrar o SDK Único na sua aplicação, é necessário atender a determinados requisitos técnicos.
 
 ## Requisitos do Sistema Operacional
 
@@ -21,15 +21,11 @@ Os terminais compatíveis possuem diferentes versões do sistema operacional, co
 
 
 
-É essencial desenvolver pensando em retrocompatibilidade com a menor versão (5.0) para garantir o funcionamento em todos os modelos.
+É essencial desenvolver com retrocompatibilidade para a versão mínima (5.0) a fim de garantir o funcionamento em todos os modelos.
 
 ## Tamanho do APK
 
-Para manter boas práticas de gerenciamento de espaço e uso de banda larga (3G/4G) nos terminais SmartPOS, o aplicativo pode ter no <b>máximo 70MB</b>.
-
-
-
-
+Para manter boas práticas de gerenciamento de espaço e uso de banda larga (3G/4G) nos terminais SmartPOS, o aplicativo deve ter no máximo <b>70MB</b>
 
 
 

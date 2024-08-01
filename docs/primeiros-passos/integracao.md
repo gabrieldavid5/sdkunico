@@ -60,7 +60,15 @@ A classe `ActivationParameters` possui parâmetros de acordo com o SDK da Adquir
 
     ```kotlin
         val params = ActivationParameters().apply {
-            pagSeguro.activationCode = "123"
+            pagSeguro.activationCode = "CODIGO_PAG_SEGURO"
+        }
+    ```
+
+=== "Rede"
+
+    ```kotlin
+        val params = ActivationParameters().apply {
+            rede.activationCode = "CODIGO_REDE"
         }
     ```
 

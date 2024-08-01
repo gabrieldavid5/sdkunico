@@ -3,7 +3,7 @@
 ## Primeiros passos
 
 Para iniciar a configuração do SDK único, o seu projeto precisa incluir as bibliotecas do SDK Único.
-A solicitação do `Token de Acesso` deve ser realizada a partir [deste formulário](https://www.linx.com.br/sdk-access-request).
+A solicitação do `Token de Acesso` deve ser realizada a partir [deste formulário](https://forms.office.com/r/ThvGGXDuq4).
 
 
 ## Passo 1 - Configurar o repositório

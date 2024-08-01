@@ -112,7 +112,6 @@ nav:
       - primeiros-passos/index.md
     - Processo de Integração: primeiros-passos/etapas.md
     - Configuração do SDK: primeiros-passos/config-sdk.md
-    - Pré-Requisitos: primeiros-passos/requisitos.md
     - Projeto Exemplo: primeiros-passos/projeto-exemplo.md
     - Desenvolvimento a Primeira Integração: primeiros-passos/integracao.md
   - Transações:

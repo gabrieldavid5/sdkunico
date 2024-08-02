@@ -10,7 +10,6 @@ import com.linx.paykit.common.Callback
 import com.linx.paykit.common.Paykit
 import com.linx.paykit.common.TransactionResult
 import com.linx.paykit.common.builder.Parameters
-import com.linx.paykit.common.parameter.PaymentParameters
 import com.linx.paykit.core.PaykitFactory
 import java.math.BigDecimal
 

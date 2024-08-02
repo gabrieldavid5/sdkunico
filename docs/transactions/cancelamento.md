@@ -1,11 +1,6 @@
 O processo para realizar qualquer transação, tem como premissa que a ativação do SDK foi previamente realizada. 
-Para realizar uma Transação de *Crédito parcelado*, utilize o exemplo abaixo. 
+Para realizar uma Transação de *Cancelamento*, utilize o exemplo abaixo. Ela realizará o desfazimento da última transação.
 
-!!! Atenção 
-
-    Verifique os parametros da transação. Os atributos devem seguir os critérios:<br/>
-    - **installments**: MAIOR ou igual a 1<br/>
-    - *amount*: MAIOR ou igual a 1
 
 ```kotlin
 import android.os.Bundle
@@ -15,7 +10,7 @@ import com.linx.paykit.common.Callback
 import com.linx.paykit.common.Paykit
 import com.linx.paykit.common.TransactionResult
 import com.linx.paykit.common.builder.Parameters
-import com.linx.paykit.common.parameter.PaymentParameters
+import com.linx.paykit.common.parameter.CancelParameter
 import com.linx.paykit.core.PaykitFactory
 import java.math.BigDecimal
 
@@ -27,24 +22,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        paykit = PaykitFactory().build(Parameters(this.applicationContext, "Credito parcelado"))
+        paykit = PaykitFactory().build(Parameters(this.applicationContext, "Transacao de Cancelamento"))
 
-        val creditParameter = PaymentParameters(
-            installments = 2,  // Número de parcelas
-            amount = BigDecimal("100.00"),  // Valor da transação
-            automaticConfirmation = true  // Confirmação automática
+        val cancelParameter = CancelParameter(
+            transactionId = 1,  // (transactionId) NSU da Transação
+            amount = BigDecimal("100.00"),  // Valor da original da transação
+            originalTransactionDate = Date()  // Data original da transação
         )
 
-        paykit.credit(creditParameter, object : Callback<TransactionResult> {
+        paykit.cancel(cancelParameter, object : Callback<TransactionResult> {
             override fun execute(result: TransactionResult) {
-                Log.i("TransactionResult", "ID: ${result.transactionId}, Transaction: ${result.transaction}")
+                 Log.i("TransactionResult", "ID: ${result.transactionId}, Transaction: ${result.transaction}")
                 onPaymentResult(result.transactionId, result.transaction)
             }
         })
     }
 
     private fun onPaymentResult(transactionId: String, transaction: TransactionResult) {
-        // Implementar a lógica para lidar com o resultado do pagamento
+        // Implementar a lógica para lidar com o resultado da reversão
     }
 }
 ```

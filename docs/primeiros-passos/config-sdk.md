@@ -46,10 +46,13 @@ dependencyResolutionManagement {
 
 ## Passo 2 - Configurar as dependências da app
 
-Adicione as dependências de implementação do SDK no `build.gradle` da app
+Adicione as dependências de implementação do SDK no `build.gradle` da app.
+O SDK Único possui três dependências principais: `commons`, `config` e `core` , que encapsulam os comportamentos das adquirentes.
+Todas estas são necessárias para a compilação do projeto.
 
+- Commons library: Classes que 
 
-=== "SDK"
+=== "Commons"
 
     ```groovy
     dependencies {
@@ -59,6 +62,79 @@ Adicione as dependências de implementação do SDK no `build.gradle` da app
     }
     ```
 
+Para adicionar o SDK da adquirente ao projeto, selecione a versão apropriada de release.
+
+
+- Stone
+
+=== "Maven"
+
+    ```groovy
+        <dependency>
+            <groupId>SDKPayServices</groupId>
+            <artifactId>stone</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+    ```
+=== "Gradle"
+
+    ```groovy
+        compile(group: 'SDKPayServices', name: 'stone', version: '1.1.1')
+    ```
+
+- PagSeguro
+
+=== "Maven"
+
+    ```groovy
+        <dependency>
+            <groupId>SDKPayServices</groupId>
+            <artifactId>pagseguro</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+    ```
+=== "Gradle"
+
+    ```groovy
+        compile(group: 'SDKPayServices', name: 'pagseguro', version: '1.1.1')
+    ```
+
+- Getnet
+
+=== "Maven"
+
+    ```groovy
+        <dependency>
+            <groupId>SDKPayServices</groupId>
+            <artifactId>getnet</artifactId>
+            <version>0.1.3.15529</version>
+        </dependency>
+    ```
+=== "Gradle"
+
+    ```groovy
+   compile(group: 'SDKPayServices', name: 'getnet', version: '0.1.3.15529')
+    ```
+- Vero
+
+=== "Maven"
+
+    ```groovy
+    <dependency>
+        <groupId>SDKPayServices</groupId>
+        <artifactId>vero</artifactId>
+        <version>0.1.3.15529</version>
+    </dependency>
+    ```
+=== "Gradle"
+
+    ```groovy
+        compile(group: 'SDKPayServices', name: 'vero', version: '0.1.3.15529')
+    ```
+
+!!! Atenção 
+
+    Faz-se necessário, para cada SDK de adquirente, configurar as respectivas dependências de adquirentes. Sendo de utilização excludente utilizar dois SDKs simultaneamente.
 
 Dependências da **Vero**
 

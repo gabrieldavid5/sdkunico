@@ -13,7 +13,7 @@ import com.linx.paykit.common.activation.ActivationResult
 import com.linx.paykit.common.builder.Parameters
 import com.linx.paykit.core.PaykitFactory
 
-val TAG = "SDKUnicoExample"
+val TAG = "AutomacaoLinx"
 var paykit: Paykit? = null
 
 fun setupPaykit() {

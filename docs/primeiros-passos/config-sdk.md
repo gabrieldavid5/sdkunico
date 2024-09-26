@@ -5,7 +5,7 @@
 Para iniciar a configuração do SDK único, o seu projeto precisa incluir as bibliotecas do SDK Único.
 A solicitação da `Senha de Acesso` deve ser realizada a partir [deste formulário](https://forms.office.com/r/ThvGGXDuq4).
 
-Esta senha é intransferível e é de responsabilidade de cada vertical solicitar a senha para o seu time.
+Esta senha é intransferível e é de responsabilidade de cada vertical solicitar para o seu time.
 
 
 ## Passo 1 - Configurar o repositório
@@ -50,17 +50,56 @@ Adicione as dependências de implementação do SDK no `build.gradle` da app.
 O SDK Único possui três dependências principais: `commons`, `config` e `core` , que encapsulam os comportamentos das adquirentes.
 Todas estas são necessárias para a compilação do projeto.
 
-- Commons library: Classes que 
+- Core library
 
-=== "Commons"
+=== "Maven"
+
+    ```xml
+    <dependency>
+        <groupId>SDKPayServices</groupId>
+        <artifactId>core</artifactId>
+        <version>1.0.3</version>
+    </dependency>
+    ```
+=== "Gradle"    
 
     ```groovy
-    dependencies {
-        implementation("SDKPayServices:core:0.1.3.15458")
-        implementation("SDKPayServices:config:0.1.3.15458")
-        implementation("SDKPayServices:common:0.1.3.15458")
-    }
+    compile(group: 'SDKPayServices', name: 'core', version: '1.0.3')
     ```
+- Commons library 
+
+=== "Maven"
+
+    ```groovy
+    <dependency>
+        <groupId>SDKPayServices</groupId>
+        <artifactId>common</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+    ```
+=== "Gradle"    
+
+    ```groovy
+    compile(group: 'SDKPayServices', name: 'common', version: '1.1.1')
+    ```
+
+- Config library 
+
+=== "Maven"
+
+    ```xml
+    <dependency>
+        <groupId>SDKPayServices</groupId>
+        <artifactId>config</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+    ```
+=== "Gradle"    
+
+    ```groovy
+    compile(group: 'SDKPayServices', name: 'config', version: '1.1.1')
+    ```
+
 
 Para adicionar o SDK da adquirente ao projeto, selecione a versão apropriada de release.
 
@@ -69,7 +108,7 @@ Para adicionar o SDK da adquirente ao projeto, selecione a versão apropriada de
 
 === "Maven"
 
-    ```groovy
+    ```xml
         <dependency>
             <groupId>SDKPayServices</groupId>
             <artifactId>stone</artifactId>
@@ -86,7 +125,7 @@ Para adicionar o SDK da adquirente ao projeto, selecione a versão apropriada de
 
 === "Maven"
 
-    ```groovy
+    ```xml
         <dependency>
             <groupId>SDKPayServices</groupId>
             <artifactId>pagseguro</artifactId>
@@ -103,7 +142,7 @@ Para adicionar o SDK da adquirente ao projeto, selecione a versão apropriada de
 
 === "Maven"
 
-    ```groovy
+    ```xml
         <dependency>
             <groupId>SDKPayServices</groupId>
             <artifactId>getnet</artifactId>
@@ -119,7 +158,7 @@ Para adicionar o SDK da adquirente ao projeto, selecione a versão apropriada de
 
 === "Maven"
 
-    ```groovy
+    ```xml
     <dependency>
         <groupId>SDKPayServices</groupId>
         <artifactId>vero</artifactId>

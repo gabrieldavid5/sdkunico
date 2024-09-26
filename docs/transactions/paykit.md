@@ -12,7 +12,7 @@ A interface `Paykit` define os métodos que cada adquirente deve implementar par
 | **voucher**                     | Processa um pagamento por meio de voucher.               | `paymentParameters`: Parâmetros da transação.                                       | `PaymentResult`     |
 | **pix**                         | Processa um pagamento via PIX.                           | `paymentParameters`: Parâmetros da transação.                                       | `PaymentResult`     |
 | **wallet**                      | Processa um pagamento utilizando carteira digital.        | `paymentParameters`: Parâmetros da transação.                                      | `PaymentResult`     |
-| **cancel**                      | Cancela uma transação.                                   | `cancelParameter`: Parâmetros de cancelamento.                                      | `CancelResult`      |
+| **cancel**                      | Cancela uma transação.                                   | `cancelParameter`: Parâmetros de cancelamento.                                      | `PaymentResult`      |
 | **confirmPendingTransaction**   | Confirma uma transação pendente.                        | `pendingTransactionParameters`: Parâmetros da transação pendente.                    | `Boolean`           |
 | **undoPendingTransaction**      | Desfaz uma transação pendente.                          | `pendingTransactionParameters`: Parâmetros da transação pendente.                    | `Boolean`           |
 | **printLastReceipt**           | Imprime o último recibo.                                | `receiptType`: Tipo de recibo a ser impresso.                                         | `Boolean`           |

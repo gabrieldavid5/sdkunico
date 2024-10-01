@@ -8,7 +8,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.linx.paykit.common.Callback
 import com.linx.paykit.common.Paykit
-import com.linx.paykit.common.TransactionResult
+import com.linx.paykit.common.PaymentResult
 import com.linx.paykit.common.builder.Parameters
 import com.linx.paykit.core.PaykitFactory
 import java.math.BigDecimal
@@ -23,21 +23,21 @@ class MainActivity : AppCompatActivity() {
 
         paykit = PaykitFactory().build(Parameters(this.applicationContext, "Transacao de Reversão"))
 
-        paykit.reversal(object : Callback<TransactionResult> {
-            override fun execute(result: TransactionResult) {
-                Log.i("TransactionResult", "Status: ${result.status}")
+        paykit.reversal(object : Callback<PaymentResult> {
+            override fun execute(result: PaymentResult) {
+                Log.i("PaymentResult", "Status: ${result.status}")
                 onPaymentResult(result.transaction)
             }
         })
     }
 
-    private fun onPaymentResult(transaction: TransactionResult) {
+    private fun onPaymentResult(transaction: PaymentResult) {
         // Implementar a lógica para lidar com o resultado da reversão
     }
 }
 ```
 
-## Explicação do TransactionResult
+## Explicação do PaymentResult
 
 No `callBack` da transação, é possível capturar detalhes da adquirente, como detalhado a seguir.
 
@@ -45,7 +45,7 @@ No `callBack` da transação, é possível capturar detalhes da adquirente, como
  - transaction: Objeto contendo o resultado detalhado da transação da adquirente, útil para deserialização.
  - transactionType: Tipo de processador de pagamento utilizado (STONE, TEF, REDE, GETNET, PAGSEGURO).
  - status: Status da transação.
- - errorMessage: Mensagem de erro, se houver.
- - processorErrorCode: Código de erro específico do processador, se houver.
+ - status: Status da transação.
+ - message: Mensagem de sucesso ou erro, se houver.
 
 

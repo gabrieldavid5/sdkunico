@@ -55,7 +55,6 @@ No `callBack` da transação, é possível capturar detalhes da adquirente, como
  - transaction: Objeto contendo o resultado detalhado da transação da adquirente, útil para deserialização.
  - transactionType: Tipo de processador de pagamento utilizado (STONE, TEF, REDE, GETNET, PAGSEGURO).
  - status: Status da transação.
- - status: Status da transação.
  - message: Mensagem de sucesso ou erro, se houver.
 
 

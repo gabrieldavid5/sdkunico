@@ -115,6 +115,7 @@ nav:
     - Desenvolvimento a Primeira Integração: primeiros-passos/integracao.md
   - Transações:
     - transactions/index.md
+    - API do SDK Único: transactions/paykit.md
     - Cancelamento: transactions/cancelamento.md
     - Crédito à Vista: transactions/credito-a-vista.md
     - Crédito Parcelado: transactions/credito-parcelado.md

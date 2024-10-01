@@ -20,8 +20,8 @@ azurePassword=YOUR_PASSWORD_HERE
 Adicione ou edite o arquivo `settings.gradle.kts` do projeto principal.
 
 ```groovy
-val azureUsername: String? = findProperty("azureUsername") as String?
-val azurePassword: String? = findProperty("azurePassword") as String?
+val azureUsername = providers.gradleProperty("azureUsername")
+val azurePassword = providers.gradleProperty("azurePassword")
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -31,9 +31,9 @@ dependencyResolutionManagement {
         maven {
             name = "SDK_UNICO"
             url = uri("https://pkgs.dev.azure.com/stndtef/SmartPOS/_packaging/SDK_UNICO/maven/v1")
-            credentials {
-                username = azureUsername ?: "default_username"
-                password = azurePassword ?: "default_password"
+            credentials{
+                username = azureUsername.orNull
+                password =  azurePassword.orNull
             }
         }
     }

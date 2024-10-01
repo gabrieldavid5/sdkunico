@@ -70,8 +70,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -115,6 +115,7 @@ nav:
     - Desenvolvimento a Primeira Integração: primeiros-passos/integracao.md
   - Transações:
     - transactions/index.md
+    - API do SDK Único: transactions/paykit.md
     - Cancelamento: transactions/cancelamento.md
     - Crédito à Vista: transactions/credito-a-vista.md
     - Crédito Parcelado: transactions/credito-parcelado.md

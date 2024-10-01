@@ -3,117 +3,203 @@
 ## Primeiros passos
 
 Para iniciar a configuração do SDK único, o seu projeto precisa incluir as bibliotecas do SDK Único.
-A solicitação do `Token de Acesso` deve ser realizada a partir [deste formulário](https://forms.office.com/r/ThvGGXDuq4).
+A solicitação da `Senha de Acesso` deve ser realizada a partir [deste formulário](https://forms.office.com/r/ThvGGXDuq4).
+
+Esta senha é intransferível e é de responsabilidade de cada vertical solicitar para o seu time.
 
 
 ## Passo 1 - Configurar o repositório
 
-Adicione esta seção ao seu arquivo `build.gradle` nos arquivos `repositories` e `publishing.repositories`.
+Adicione as variáveis do Artifacts em seu `gradle.properties`
+
+```
+azureUsername=stndtef
+azurePassword=YOUR_PASSWORD_HERE
+```
+
+Adicione ou edite o arquivo `settings.gradle.kts` do projeto principal.
 
 ```groovy
-maven {
-    url 'https://pkgs.dev.azure.com/stndtef/SmartPOS/_packaging/SDK_UNICO/maven/v1'
-    name 'SDK_UNICO'
-    authentication {
-        basic(BasicAuthentication)
+val azureUsername = providers.gradleProperty("azureUsername")
+val azurePassword = providers.gradleProperty("azurePassword")
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            name = "SDK_UNICO"
+            url = uri("https://pkgs.dev.azure.com/stndtef/SmartPOS/_packaging/SDK_UNICO/maven/v1")
+            credentials{
+                username = azureUsername.orNull
+                password =  azurePassword.orNull
+            }
+        }
     }
 }
-```
-Adicione ou edite o arquivo `settings.xml`localizado no caminho `${user.home}/.m2`
-
-```groovy
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <servers>
-    <server>
-      <id>SDK_UNICO</id>
-      <username>stndtef</username>
-      <password>[PERSONAL_ACCESS_TOKEN]</password>
-    </server>
-  </servers>
-</settings>
 ```
 
 !!! Atenção 
 
-    Faz-se necessário, para cada SDK de adquirente, configurar as respectivas dependências. Sendo de utilização excludente utilizar dois SDKs simultaneamente.
+    Faz-se necessário, para cada SDK de adquirente, configurar as respectivas dependências de adquirentes. Sendo de utilização excludente utilizar dois SDKs simultaneamente.
 
-## Passo 2 - Configurar o build.gradle da app
+## Passo 2 - Configurar as dependências da app
 
-Dependências da **Stone**
+Adicione as dependências de implementação do SDK no `build.gradle` da app.
+O SDK Único possui três dependências principais: `commons`, `config` e `core` , que encapsulam os comportamentos das adquirentes.
+Todas estas são necessárias para a compilação do projeto.
 
-=== "Maven"
-
-    ```xml
-    <dependency>
-      <groupId>SDKPayServices</groupId>
-      <artifactId>stone</artifactId>
-      <version>1.0.3</version>
-    </dependency>
-    ```
-
-=== "Gradle"
-
-    ```groovy
-    compile(group: 'SDKPayServices', name: 'stone', version: '1.0.3')
-    ```    
-
-
-Dependências do **Linx DTEF**
+- Core library
 
 === "Maven"
 
     ```xml
     <dependency>
-      <groupId>SDKPayServices</groupId>
-      <artifactId>tef</artifactId>
-      <version>1.0.3</version>
+        <groupId>SDKPayServices</groupId>
+        <artifactId>core</artifactId>
+        <version>1.0.3</version>
     </dependency>
     ```
+=== "Gradle"    
+
+    ```groovy
+    compile(group: 'SDKPayServices', name: 'core', version: '1.0.3')
+    ```
+- Commons library 
+
+=== "Maven"
+
+    ```groovy
+    <dependency>
+        <groupId>SDKPayServices</groupId>
+        <artifactId>common</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+    ```
+=== "Gradle"    
+
+    ```groovy
+    compile(group: 'SDKPayServices', name: 'common', version: '1.1.1')
+    ```
+
+- Config library 
+
+=== "Maven"
+
+    ```xml
+    <dependency>
+        <groupId>SDKPayServices</groupId>
+        <artifactId>config</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+    ```
+=== "Gradle"    
+
+    ```groovy
+    compile(group: 'SDKPayServices', name: 'config', version: '1.1.1')
+    ```
+
+
+Para adicionar o SDK da adquirente ao projeto, selecione a versão apropriada de release.
+
+
+- Stone
+
+=== "Maven"
+
+    ```xml
+        <dependency>
+            <groupId>SDKPayServices</groupId>
+            <artifactId>stone</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+    ```
+=== "Gradle"
+
+    ```groovy
+        compile(group: 'SDKPayServices', name: 'stone', version: '1.1.1')
+    ```
+
+- PagSeguro
+
+=== "Maven"
+
+    ```xml
+        <dependency>
+            <groupId>SDKPayServices</groupId>
+            <artifactId>pagseguro</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+    ```
+=== "Gradle"
+
+    ```groovy
+        compile(group: 'SDKPayServices', name: 'pagseguro', version: '1.1.1')
+    ```
+
+- Getnet
+
+=== "Maven"
+
+    ```xml
+        <dependency>
+            <groupId>SDKPayServices</groupId>
+            <artifactId>getnet</artifactId>
+            <version>0.1.3.15529</version>
+        </dependency>
+    ```
+=== "Gradle"
+
+    ```groovy
+   compile(group: 'SDKPayServices', name: 'getnet', version: '0.1.3.15529')
+    ```
+- Vero
+
+=== "Maven"
+
+    ```xml
+    <dependency>
+        <groupId>SDKPayServices</groupId>
+        <artifactId>vero</artifactId>
+        <version>0.1.3.15529</version>
+    </dependency>
+    ```
+=== "Gradle"
+
+    ```groovy
+        compile(group: 'SDKPayServices', name: 'vero', version: '0.1.3.15529')
+    ```
+
+!!! Atenção 
+
+    Faz-se necessário, para cada SDK de adquirente, configurar as respectivas dependências de adquirentes. Sendo de utilização excludente utilizar dois SDKs simultaneamente.
+
+Dependências da **Vero**
 
 === "Gradle"
 
     ```groovy
-    compile(group: 'SDKPayServices', name: 'tef', version: '1.0.3')
+    android {
+        productFlavors {
+        create("linxtef")
+        create("stone") {
+            minSdk = 22
+            targetSdk = 34
+        }
+        create("pagseguro") {
+            minSdk = 23
+        }
+        create("rede")
+        create("getnet") {
+            minSdk = 22
+        }
+        create("vero"){
+            minSdk = 22
+        }
+    }
     ```    
 
+## Passo 3 - Verificação de dependências
 
-## Passo 3 - Verificar as permissões necessárias
-
-Adicione as seguintes permissões ao seu arquivo `AndroidManifest.xml`:
-
-```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.seuapp">
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_OWNER_DATA"/>
-    <uses-permission android:name="android.permission.READ_OWNER_DATA"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
-
-    <application
-        android:allowBackup="true"
-        android:label="@string/app_name"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-</manifest>
-```
+Realize a build do projeto e verifique se as dependências foram resolvidas.

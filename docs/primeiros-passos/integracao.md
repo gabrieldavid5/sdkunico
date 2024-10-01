@@ -13,7 +13,7 @@ import com.linx.paykit.common.activation.ActivationResult
 import com.linx.paykit.common.builder.Parameters
 import com.linx.paykit.core.PaykitFactory
 
-val TAG = "SDKUnicoExample"
+val TAG = "AutomacaoLinx"
 var paykit: Paykit? = null
 
 fun setupPaykit() {
@@ -33,7 +33,7 @@ fun setupPaykit() {
 }
 ```
 
-A classe `ActivationParameters` possui parâmetros de acordo com o SDK da Adquirente.
+A classe `ActivationParameters` possui parâmetros que variam de acordo com o SDK da Adquirente.
 
 === "Linx DTEF"
 
@@ -42,6 +42,7 @@ A classe `ActivationParameters` possui parâmetros de acordo com o SDK da Adquir
             tef.cnpj = "CNPJ"
             tef.production = false
             tef.token = "TOKEN"
+            tef.host = "TEF HOST"
         }
     ```
 
@@ -71,6 +72,9 @@ A classe `ActivationParameters` possui parâmetros de acordo com o SDK da Adquir
             rede.activationCode = "CODIGO_REDE"
         }
     ```
+=== "Vero"
+
+
 
 !!! Atenção 
 
